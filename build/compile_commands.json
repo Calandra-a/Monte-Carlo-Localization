@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/arc/Documents/MCL/build",
+  "command": "/usr/bin/c++     -g   -o CMakeFiles/mcl.dir/main.cpp.o -c /home/arc/Documents/MCL/main.cpp",
+  "file": "/home/arc/Documents/MCL/main.cpp"
+}
+]

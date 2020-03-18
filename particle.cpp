@@ -9,8 +9,16 @@ private:
 	int theata;
 	int weight;
 public:
-	particle(int x, int y, int theat, int weight);
-	void getParticle();
+	particle(int x, int y, int theata, int weight);
+	void printParticle();
+	int getX();
+	int getY();
+	int getT();
+	int getW();
+	void setX(int);
+	void setY(int);
+	void setT(int);
+	void setW(int);
 };
 
 //Member Functions - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -20,8 +28,33 @@ particle::particle(int x, int y, int theata, int weight){
 			this->theata = theata;
 			this->weight = weight;
 }
-void particle::getParticle(){
+void particle::printParticle(){
 		printf("x: %d y: %d theata: %d weight: %d\n",x,y,theata,weight);
+}
+
+int getX(){
+	return x;
+}
+int getY(){
+	return y;
+}
+int getT(){
+	return theata;
+}
+int getW(){
+	return weight;
+}
+void setX(int x){
+	this->x = x
+}
+void setY(int y){
+	this->y = y
+}
+void setX(int theata){
+	this->theata = theata
+}
+void setX(int weight){
+	this->weight = weight
 }
 
 //Functions - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
