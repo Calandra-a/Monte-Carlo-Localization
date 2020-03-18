@@ -6,18 +6,18 @@ namespace plt = matplotlibcpp;
 int plot(std::vector<particle> particles) {
     //plt::figure_size(10, 10);
     //landmark 1
-    std::vector<double> x= {1,4,4,1,1};
-    std::vector<double> y= {1,1,4,4,1};
+    std::vector<double> x= {1,25,25,1,1};
+    std::vector<double> y= {1,1,25,25,1};
     plt::plot(x,y,"r--");
     //landmark 2
-    std::vector<double> x2= {10,13,13,10,10};
-    std::vector<double> y2= {10,10,13,13,10};
+    std::vector<double> x2= {90,120,120,90,90};
+    std::vector<double> y2= {90,90,120,120,90};
 
     plt::plot(x2,y2,"r--");
 
     //robot
-    std::vector<double> robotX= {5,6,6,5,5};
-    std::vector<double> robotY= {5,5,6,6,5};
+    std::vector<double> robotX= {30,40,40,30,30};
+    std::vector<double> robotY= {30,30,40,40,30};
 
     plt::plot(robotX,robotY, "g-");
 
@@ -31,6 +31,7 @@ int plot(std::vector<particle> particles) {
     std::vector<double> dx;
     std::vector<double> dy;
     double pi = 3.14159;
+    
     for (int i = 0; i < particles.size(); i++){
         px.push_back(particles.at(i).getX());
         py.push_back(particles.at(i).getY());
