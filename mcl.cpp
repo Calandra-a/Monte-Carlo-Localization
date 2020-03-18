@@ -10,7 +10,7 @@ particle mcl (std::vector<particle> prevParticles, int control[2], measurment, i
 		//sets x,y,theata
 		motion_model(p, control, prevParticles.at(i));
 		//sets weight value
-		measurement_model(p, measurment, particle(i), setSize);
+		measurement_model(p, measurment, setSize);
 		//adds particle to predicted set
 		predictedParticleSet.add(p);
 	}

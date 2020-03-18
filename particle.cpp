@@ -64,7 +64,7 @@ void printParticles(std::vector<particle>);
 std::vector<particle> genParticles(int setSize){
 	std::vector<particle> p;
 	for(int i =0; i < setSize; i++){
-		particle part(1,2,3,4);
+		particle part(1+i,2+i,340+i,4);
 		p.push_back(part);
 	}
 	return p;
