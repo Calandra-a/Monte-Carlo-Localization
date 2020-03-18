@@ -1,9 +1,21 @@
 #include "particle.cpp" 
-#include <cmath.h>
-void montion_model(particle, control, particle);
+#include <math.h>
+void motion_model(particle&, int[], particle);
 
-void montion_model(particle newP, control u, particle prevP){
+void motion_model(particle& newP, int control[2], particle prevP){
 	 //calculations
-	newP.setX(prevP.getX() - (u.getV/u.getOmega));
-
+	 //control is a 3 item array, velocity (v), degrees of turn (omega), time the control lasts(delta t)
+	newP.setX(
+		prevP.getX() - 
+		(control[0]/control[1])*sin(prevP.getT()) +
+		(control[0]/control[1])*sin(prevP.getT() + control[1]*control[2])
+	);
+	newP.setY(
+		prevP.getY() + 
+		(control[0]/control[1])*cos(prevP.getT()) -
+		(control[0]/control[1])*cos(prevP.getT() + control[1]*control[2])
+	);
+	newP.setT(
+		prevP.getT() + (control[1]*control[2])
+	);
 }

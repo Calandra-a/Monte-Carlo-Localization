@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <vector>
-
+#pragma once
 
 class particle {
 private:
@@ -9,7 +9,7 @@ private:
 	int theata;
 	int weight;
 public:
-	particle(int x, int y, int theata, int weight);
+	particle(int, int, int, int );
 	void printParticle();
 	int getX();
 	int getY();
@@ -32,29 +32,29 @@ void particle::printParticle(){
 		printf("x: %d y: %d theata: %d weight: %d\n",x,y,theata,weight);
 }
 
-int getX(){
+int particle::getX(){
 	return x;
 }
-int getY(){
+int particle::getY(){
 	return y;
 }
-int getT(){
+int particle::getT(){
 	return theata;
 }
-int getW(){
+int particle::getW(){
 	return weight;
 }
-void setX(int x){
-	this->x = x
+void particle::setX(int x){
+	this->x = x;
 }
-void setY(int y){
-	this->y = y
+void particle::setY(int y){
+	this->y = y;
 }
-void setX(int theata){
-	this->theata = theata
+void particle::setT(int theata){
+	this->theata = theata;
 }
-void setX(int weight){
-	this->weight = weight
+void particle::setW(int weight){
+	this->weight = weight;
 }
 
 //Functions - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -72,6 +72,6 @@ std::vector<particle> genParticles(int setSize){
 
 void printParticles(std::vector<particle> p){
 	for(int i=0; i<p.size();i++){
-		p.at(i).getParticle();
+		p.at(i).printParticle();
 	}
 }
