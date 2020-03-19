@@ -17,7 +17,7 @@ particle mcl (std::vector<particle> prevParticles, int control[2], feature measu
 		//sets x,y,theata
 		motion_model(p, control, prevParticles.at(i));
 		//sets weight value
-		measurement_model(p, measured, prevParticles.at(i), currMap);
+		measurement_model(p, measured,r ,prevParticles.at(i), currMap);
 		//adds particle to predicted set
 		predictedParticleSet.push_back(p);
 	}
@@ -28,7 +28,30 @@ particle mcl (std::vector<particle> prevParticles, int control[2], feature measu
 	}
 
 	plot(predictedParticleSet,r);
-	//for (int i =0; i < setSize; i++){
-		//resampling
-	//}
+	int total=0;
+	for (int i =0; i < predictedParticleSet.size(); i++){
+		total = total + predictedParticleSet.at(i).getW();
+		printf("Total %d: %d \n",i, total);
+	}
+	
+	
+	std::vector<particle> resample;
+	srand(time(0));
+	
+	for (int i =0; i <predictedParticleSet.size() ; i++){
+		int choose = rand()%total;
+		printf("choose %d\n", choose);
+		int counter =0;
+	  	for (int j=0; j < predictedParticleSet.size(); j++){
+			  counter = counter + predictedParticleSet.at(j).getW();
+			  if(counter > choose){
+				  resample.push_back(predictedParticleSet.at(j));
+				  printf("Pushed: %d\n", j);
+				  break;
+				  printf("here check\n");
+			  }
+		  }
+	}//end for
+
+	plot(resample,r);
 }
