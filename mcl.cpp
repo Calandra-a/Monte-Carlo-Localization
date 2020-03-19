@@ -6,7 +6,7 @@
 #include "measurement_model.cpp"
 
 //mcl input previous particle set, a control, a measurement, and a setsize
-particle mcl (std::vector<particle> prevParticles, int control[2], feature measured,robot r, map currMap){
+std::vector<particle> mcl (std::vector<particle> prevParticles, int control[2], feature measured,robot&  r, map currMap){
 	
 	 std::vector<particle> predictedParticleSet; 
 	 particle p(0,0,0,0); 
@@ -22,16 +22,17 @@ particle mcl (std::vector<particle> prevParticles, int control[2], feature measu
 		predictedParticleSet.push_back(p);
 	}
 	
-	
-	for (int i =0; i < predictedParticleSet.size(); i ++){
-		printf("weight: %d\n",predictedParticleSet.at(i).getW());
-	}
+	// printf("Weight:");
+	// for (int i =0; i < predictedParticleSet.size(); i ++){
+	// 	printf("%d, ",predictedParticleSet.at(i).getW());
+	// }
+	// printf("\n");
 
-	plot(predictedParticleSet,r);
+	//plot(predictedParticleSet,r);
 	int total=0;
 	for (int i =0; i < predictedParticleSet.size(); i++){
 		total = total + predictedParticleSet.at(i).getW();
-		printf("Total %d: %d \n",i, total);
+		//printf("Total %d: %d \n",i, total);
 	}
 	
 	
@@ -40,18 +41,19 @@ particle mcl (std::vector<particle> prevParticles, int control[2], feature measu
 	
 	for (int i =0; i <predictedParticleSet.size() ; i++){
 		int choose = rand()%total;
-		printf("choose %d\n", choose);
+		//printf("choose %d\n", choose);
 		int counter =0;
 	  	for (int j=0; j < predictedParticleSet.size(); j++){
 			  counter = counter + predictedParticleSet.at(j).getW();
 			  if(counter > choose){
 				  resample.push_back(predictedParticleSet.at(j));
-				  printf("Pushed: %d\n", j);
+				  //printf("Pushed: %d\n", j);
 				  break;
-				  printf("here check\n");
+				  //printf("here check\n");
 			  }
 		  }
 	}//end for
-
 	plot(resample,r);
+	return resample;
+	
 }

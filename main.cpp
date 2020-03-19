@@ -8,7 +8,7 @@
 #include "robot.cpp"
 //prevParticle, control, measurment, setSize
 int main(){
-	std::vector<particle> startP = genParticles(20);
+	std::vector<particle> startP = genParticles(300);
 	//printParticles(startP);
 	robot r(30,30,60);
 	plot(startP,r);
@@ -20,8 +20,9 @@ int main(){
 	if(currMap.checkMeasurement(measurement) == false){
 		currMap.setFeature(measurement);
 	}
-	//for (int i =0; i <7; i++){
+	for (int i =0; i <10; i++){
 	int c[3] = {10,10,10};
-	mcl(startP,c,measurement,r, currMap);
-	//}
+	startP = mcl(startP,c,measurement,r, currMap);
+	}
+
 }
