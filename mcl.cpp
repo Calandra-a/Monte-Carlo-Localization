@@ -19,15 +19,15 @@ std::vector<particle> mcl (std::vector<particle> prevParticles, int control[2], 
 		predictedParticleSet.push_back(p);
 	}
 
+
+	//Resample
 	int total=0; 
 	for (int i =0; i < predictedParticleSet.size(); i++){
 		total = total + predictedParticleSet.at(i).getW();
 	}
-	
-	
 	std::vector<particle> resample;
 	srand(time(0));
-	
+	//Draw
 	for (int i =0; i <predictedParticleSet.size() ; i++){
 		int choose = rand()%total;
 		int counter =0;
@@ -40,7 +40,6 @@ std::vector<particle> mcl (std::vector<particle> prevParticles, int control[2], 
 		  }
 	}//end for
 
-	printf("\n");
 	plot(resample,r);
 	return resample;
 	
