@@ -11,8 +11,6 @@ int plot(std::vector<particle> particles, robot r) {
     //landmark 
     std::vector<int> x2= {90,91};
     std::vector<int> y2= {90,91};
-    //std::vector<int> x2= {90,120,120,90,90};
-    //std::vector<int> y2= {90,90,120,120,90};
 
     plt::plot(x2,y2,"r--");
 
@@ -26,8 +24,7 @@ int plot(std::vector<particle> particles, robot r) {
     robotY.push_back(r.getY());
     robotdX.push_back(cos(r.getT()/(180/pi)));
     robotdY.push_back(sin(r.getT()/(180/pi)));
-    //printf("HEREEEEE %d %d  ----- %f",r.getX(),r.getY(), cos(r.getT()/(180/pi)));
-    //printf(" HEREEEE2 %d %d  ----- %f\n",r.getX(),r.getY(),sin(r.getT()/(180/pi)));
+
     plt::quiver(robotX,robotY,robotdX,robotdY);
     
     robotX.push_back(r.getX()+1);
@@ -51,11 +48,10 @@ int plot(std::vector<particle> particles, robot r) {
         px.push_back(particles.at(i).getX());
         py.push_back(particles.at(i).getY());
 
-        dx.push_back(/*particles.at(i).getX() +*/ cos(particles.at(i).getT()/(180/pi)));
-        //printf("cos %f", cos(particles.at(i).getT()/(180/pi)));
+        dx.push_back(cos(particles.at(i).getT()/(180/pi)));
 
-        dy.push_back(/*particles.at(i).getY() + */sin(particles.at(i).getT()/(180/pi)));
-        //printf(" sin %f\n",sin(particles.at(i).getT()/(180/pi)));
+
+        dy.push_back(sin(particles.at(i).getT()/(180/pi)));
     }
 
     plt::quiver(px,py,dx,dy);
