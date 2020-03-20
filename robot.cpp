@@ -2,7 +2,6 @@
 #include <vector>
 #include <stdlib.h> 
 #include <time.h> 
-#include "feature.cpp"
 #pragma once
 
 class robot {
@@ -13,7 +12,7 @@ private:
 
 public:
 	robot(int, int, int );
-	void sense(feature);
+	;
 
 	int getX();
 	int getY();
