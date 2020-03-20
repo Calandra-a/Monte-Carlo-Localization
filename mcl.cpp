@@ -10,7 +10,6 @@ std::vector<particle> mcl (std::vector<particle> prevParticles, int control[2], 
 	r.setX(r.getX()+control[0]);
 	r.setY(r.getY()+control[1]);
 	r.setT(r.getT()+control[2]);
-	printf("X %d Y %d T %d", r.getX(), r.getY(), r.getT());
 	for (int i =0; i < prevParticles.size(); i++){
 		//sets x,y,theata
 		motion_model(p, control, prevParticles.at(i));
