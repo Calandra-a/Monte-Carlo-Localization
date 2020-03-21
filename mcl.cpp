@@ -1,11 +1,11 @@
-#include <vector>
 #include "particle.cpp"
 #include "motion_model.cpp"
 #include "measurement_model.cpp"
+#include "pVector.cpp"
 
-std::vector<particle> mcl (std::vector<particle> prevParticles, int control[2], robot&  r){
+pVector mcl (pVector prevParticles, int control[2], robot&  r){
 	
-	 std::vector<particle> predictedParticleSet; 
+	 pVector predictedParticleSet; 
 	 particle p(0,0,0,0); 
 	r.setX(r.getX()+control[0]);
 	r.setY(r.getY()+control[1]);
@@ -25,7 +25,7 @@ std::vector<particle> mcl (std::vector<particle> prevParticles, int control[2], 
 	for (int i =0; i < predictedParticleSet.size(); i++){
 		total = total + predictedParticleSet.at(i).getW();
 	}
-	std::vector<particle> resample;
+	pVector resample;
 	srand(time(0));
 	//Draw
 	for (int i =0; i <predictedParticleSet.size() ; i++){

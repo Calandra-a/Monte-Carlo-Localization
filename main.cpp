@@ -4,8 +4,10 @@
 #include "motion_model.cpp"
 #include "plots/world.cpp"
 #include "robot.cpp"
+#include "particleFunctions.cpp"
+
 int main(){
-	std::vector<particle> startP = genParticles(1000);
+	pVector startP = genParticles(1000);
 	robot r(30,30,60);
 	plot(startP,r);
 	for (int i =0; i <10; i++){
