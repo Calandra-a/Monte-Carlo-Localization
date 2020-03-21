@@ -3,9 +3,10 @@
 #include <math.h>
 #include <stdio.h>
 #include "../robot.cpp"
+#include "../pVector.cpp"
 #pragma once
 namespace plt = matplotlibcpp;
-int plot(std::vector<particle> particles, robot r) {
+int plot(pVector particles, robot r) {
     double pi = 3.14159;
 
     //landmark 

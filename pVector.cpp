@@ -1,3 +1,4 @@
+#pragma once
 #include "particle.cpp"
 
 struct node{
@@ -16,7 +17,7 @@ public:
     particle at(int);
     int size();
 }; 
-
+// Member Functions - - - - - - - - - - - - - - - - - - - - - -
 pVector::pVector(){ 
     head = nullptr;
     tail = nullptr;
