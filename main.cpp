@@ -1,6 +1,5 @@
 #include "mcl.cpp"
 #include "particle.cpp"
-#include <iostream> 
 #include "motion_model.cpp"
 #include "plots/world.cpp"
 #include "robot.cpp"
