@@ -1,7 +1,6 @@
 #include "/home/arc/Documents/MCL/matplotlib-cpp/matplotlibcpp.h"
-#include <vector>
-#include <math.h>
-#include <stdio.h>
+#include <vector> //todo remove
+#include <math.h> //todo remove
 #include "../robot.cpp"
 #include "../pVector.cpp"
 #pragma once
@@ -32,7 +31,7 @@ int plot(pVector particles, robot r) {
     robotX.push_back(r.getX()+2);
     robotY.push_back(r.getY()+1);
     robotY.push_back(r.getY()+2);
-    plt::plot(robotX,robotY, "g-");
+    //plt::plot(robotX,robotY, "g-");
 
     //Particles 
     //px: x position of particle

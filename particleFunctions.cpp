@@ -1,10 +1,8 @@
 #include "pVector.cpp"
-#include <stdlib.h> 
-#include <time.h> 
 #include "particle.cpp"
 //Functions - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 pVector genParticles(int);
-void printParticles(pVector);
+void printParticles(pVector);//todo remove
 
 pVector genParticles(int setSize){
 	srand(time(0));
@@ -14,10 +12,4 @@ pVector genParticles(int setSize){
 		p.push_back(part);
 	}
 	return p;
-}
-
-void printParticles(pVector p){
-	for(int i=0; i<p.size();i++){
-		p.at(i).printParticle();
-	}
 }

@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h> 
-#include <time.h> 
-  
 #pragma once
 
 class particle {
@@ -29,9 +25,6 @@ particle::particle(int x, int y, int theata, int weight){
 			this->y = y;
 			this->theata = theata;
 			this->weight = weight;
-}
-void particle::printParticle(){
-		printf("x: %d y: %d theata: %d weight: %d\n",x,y,theata,weight);
 }
 
 int particle::getX(){
