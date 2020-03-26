@@ -10,12 +10,13 @@
 int main(){
 	//Used for realtime runtime analysis
 	//auto t1 = std::chrono::high_resolution_clock::now();
-	pVector startP = genParticles(500);
-	robot r(30,30,60);
+	pVector startP = genParticles(1000);
+	robot r(100,100,100);
 	plot(startP,r);
-	for (int i =0; i <20; i++){
-	int c[3] = {1,1,1};
-	startP = mcl(startP,c,r);
+	for (int i =0; i <5; i++){
+		plot(startP,r);
+		int c[3] = {1,1,1};
+		startP = mcl(startP,c,r);
 	}
 	//Used for realtime runtime analysis
     //auto t2 = std::chrono::high_resolution_clock::now();

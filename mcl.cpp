@@ -2,11 +2,10 @@
 #include "motion_model.cpp"
 #include "measurement_model.cpp"
 #include "pVector.cpp"
-
 pVector mcl (pVector prevParticles, int control[2], robot&  r){
 	
-	 pVector predictedParticleSet; 
-	 particle p(0,0,0,0); 
+	pVector predictedParticleSet; 
+	particle p(0,0,0,0); 
 	r.setX(r.getX()+control[0]);
 	r.setY(r.getY()+control[1]);
 	r.setT(r.getT()+control[2]);
@@ -25,6 +24,7 @@ pVector mcl (pVector prevParticles, int control[2], robot&  r){
 	for (int i =0; i < predictedParticleSet.size(); i++){
 		total = total + predictedParticleSet.at(i).getW();
 	}
+
 	pVector resample;
 	srand(time(0));
 	//Draw
@@ -39,7 +39,6 @@ pVector mcl (pVector prevParticles, int control[2], robot&  r){
 			  }
 		  }
 	}//end for
-
 	plot(resample,r);
 	return resample;
 	
