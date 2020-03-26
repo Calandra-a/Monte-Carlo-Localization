@@ -14,7 +14,7 @@ int main(){
 	robot r(100,100,100);
 	plot(startP,r);
 	for (int i =0; i <5; i++){
-		plot(startP,r);
+		
 		int c[3] = {1,1,1};
 		startP = mcl(startP,c,r);
 	}

@@ -1,7 +1,6 @@
 #include "particle.cpp" 
 #include "plots/world.cpp"
 #include <math.h>
-
 #pragma once
 void motion_model(particle&, int[], particle);
 
@@ -21,6 +20,4 @@ void motion_model(particle& newP, int control[2], particle prevP){
 	newP.setT(
 		prevP.getT() + (control[1]*control[2])
 	);
-
-
 }
