@@ -1,6 +1,4 @@
 #include "particle.cpp"
-#include "feature.cpp"
-#include "map.cpp"
 #include "robot.cpp"
 #include "helperFunctions.cpp"
 #include "iostream"
