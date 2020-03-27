@@ -1,7 +1,6 @@
 #include "particle.cpp" 
 #include "plots/world.cpp"
 #include <math.h>
-#include <iostream>
 #pragma once
 void motion_model(particle&, int[], particle);
 int sample_normal_distribution(int);
@@ -25,6 +24,5 @@ int sample_normal_distribution(int b){
 	srand(time(0));
 	for (int i = 0; i < 12; i++){
 		sample +=  (rand()%(b+b)-b);
-		std::cout<<"rand"<<sample<<"\n";
 	}
 }
