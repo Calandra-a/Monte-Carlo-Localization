@@ -5,8 +5,8 @@
 
 pVector mcl (pVector prevParticles, int control[2], robot&  r){
 	
-	 pVector predictedParticleSet; 
-	 particle p(0,0,0,0); 
+	pVector predictedParticleSet; 
+	particle p(0,0,0,0); 
 	r.setX(r.getX()+control[0]);
 	r.setY(r.getY()+control[1]);
 	r.setT(r.getT()+control[2]);
@@ -14,7 +14,7 @@ pVector mcl (pVector prevParticles, int control[2], robot&  r){
 		//sets x,y,theata
 		motion_model(p, control, prevParticles.at(i));
 		//sets weight value
-		measurement_model(p,r ,prevParticles.at(i));
+		measurement_model(p,f,r,prevParticles.at(i));
 		//adds particle to predicted set
 		predictedParticleSet.push_back(p);
 	}
