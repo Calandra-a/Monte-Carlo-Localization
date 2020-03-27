@@ -31,7 +31,7 @@ int plot(pVector particles, robot r) {
     robotX.push_back(r.getX()+2);
     robotY.push_back(r.getY()+1);
     robotY.push_back(r.getY()+2);
-    //plt::plot(robotX,robotY, "g-");
+    plt::plot(robotX,robotY, "g-");
 
     //Particles 
     //px: x position of particle
