@@ -1,10 +1,4 @@
-#include <stdio.h>
-#include <vector>
-#include <stdlib.h> 
-#include <time.h> 
-  
 #pragma once
-
 class particle {
 private:
  	int x;
@@ -30,9 +24,6 @@ particle::particle(int x, int y, int theata, int weight){
 			this->y = y;
 			this->theata = theata;
 			this->weight = weight;
-}
-void particle::printParticle(){
-		printf("x: %d y: %d theata: %d weight: %d\n",x,y,theata,weight);
 }
 
 int particle::getX(){
@@ -60,22 +51,3 @@ void particle::setW(int weight){
 	this->weight = weight;
 }
 
-//Functions - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-std::vector<particle> genParticles(int);
-void printParticles(std::vector<particle>);
-
-std::vector<particle> genParticles(int setSize){
-	srand(time(0));
-	std::vector<particle> p;
-	for(int i =0; i < setSize; i++){
-		particle part(rand()%200,rand()%200,rand()%360,0);
-		p.push_back(part);
-	}
-	return p;
-}
-
-void printParticles(std::vector<particle> p){
-	for(int i=0; i<p.size();i++){
-		p.at(i).printParticle();
-	}
-}

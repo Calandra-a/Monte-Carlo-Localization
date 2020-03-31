@@ -1,18 +1,24 @@
 #include "/home/arc/Documents/MCL/matplotlib-cpp/matplotlibcpp.h"
-#include <vector>
-#include <math.h>
-#include <stdio.h>
+#include <vector> //todo remove
+#include <math.h> //todo remove
 #include "../robot.cpp"
+#include "../pVector.cpp"
 #pragma once
 namespace plt = matplotlibcpp;
-int plot(std::vector<particle> particles, robot r) {
+int plot(pVector <particle>particles, robot r) {
     double pi = 3.14159;
+    //holder
+    std::vector<int> hold1= {300,300};
+    std::vector<int> hold2= {300,300};
 
+    plt::plot(hold1,hold2,"r--");
+    std::vector<int> hold3= {0,0};
+    std::vector<int> hold4= {0,0};
+
+    plt::plot(hold3,hold4,"r--");
     //landmark 
     std::vector<int> x2= {90,91};
     std::vector<int> y2= {90,91};
-    //std::vector<int> x2= {90,120,120,90,90};
-    //std::vector<int> y2= {90,90,120,120,90};
 
     plt::plot(x2,y2,"r--");
 
@@ -26,8 +32,7 @@ int plot(std::vector<particle> particles, robot r) {
     robotY.push_back(r.getY());
     robotdX.push_back(cos(r.getT()/(180/pi)));
     robotdY.push_back(sin(r.getT()/(180/pi)));
-    //printf("HEREEEEE %d %d  ----- %f",r.getX(),r.getY(), cos(r.getT()/(180/pi)));
-    //printf(" HEREEEE2 %d %d  ----- %f\n",r.getX(),r.getY(),sin(r.getT()/(180/pi)));
+
     plt::quiver(robotX,robotY,robotdX,robotdY);
     
     robotX.push_back(r.getX()+1);
@@ -51,11 +56,10 @@ int plot(std::vector<particle> particles, robot r) {
         px.push_back(particles.at(i).getX());
         py.push_back(particles.at(i).getY());
 
-        dx.push_back(/*particles.at(i).getX() +*/ cos(particles.at(i).getT()/(180/pi)));
-        //printf("cos %f", cos(particles.at(i).getT()/(180/pi)));
+        dx.push_back(cos(particles.at(i).getT()/(180/pi)));
 
-        dy.push_back(/*particles.at(i).getY() + */sin(particles.at(i).getT()/(180/pi)));
-        //printf(" sin %f\n",sin(particles.at(i).getT()/(180/pi)));
+
+        dy.push_back(sin(particles.at(i).getT()/(180/pi)));
     }
 
     plt::quiver(px,py,dx,dy);

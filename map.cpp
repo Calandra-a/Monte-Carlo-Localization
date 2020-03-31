@@ -1,9 +1,9 @@
-#include <vector>
 #include "feature.cpp"
+#include "pVector.cpp"
 #pragma once
 class map{
     private:
-        std::vector<feature> m;
+        pVector<feature> m;
     public:
         feature getFeature(int); 
         void setFeature(feature);
