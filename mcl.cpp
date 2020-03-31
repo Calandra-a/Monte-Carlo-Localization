@@ -3,7 +3,7 @@
 #include "measurement_model.cpp"
 #include "pVector.cpp"
 
-pVector<particle> mcl (pVector<particle> prevParticles, int control[2], robot&  r){
+pVector<particle> mcl (pVector<particle> prevParticles, int control[2], feature f, robot&  r, map currMap){
 	
 	pVector<particle> predictedParticleSet; 
 	particle p(0,0,0,0); 
@@ -14,7 +14,7 @@ pVector<particle> mcl (pVector<particle> prevParticles, int control[2], robot&  
 		//sets x,y,theata
 		motion_model(p, control, prevParticles.at(i));
 		//sets weight value
-		measurement_model(p,f,r,prevParticles.at(i));
+		measurement_model(p,f,r,prevParticles.at(i),currMap);
 		//adds particle to predicted set
 		predictedParticleSet.push_back(p);
 	}
@@ -40,7 +40,6 @@ pVector<particle> mcl (pVector<particle> prevParticles, int control[2], robot&  
 		  }
 	}//end for
 
-	plot(resample,r);
 	return resample;
 	
 }

@@ -8,7 +8,7 @@ namespace plt = matplotlibcpp;
 int plot(pVector <particle>particles, robot r) {
     double pi = 3.14159;
     //holder
-     std::vector<int> hold1= {300,300};
+    std::vector<int> hold1= {300,300};
     std::vector<int> hold2= {300,300};
 
     plt::plot(hold1,hold2,"r--");
