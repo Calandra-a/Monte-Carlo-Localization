@@ -1,11 +1,14 @@
 #include "particle.cpp" 
 #include "plots/world.cpp"
 #include <math.h>
+#include <stdlib.h>
+#include <time.h>  
 #pragma once
 void motion_model(particle&, int[], particle);
 int sample_normal_distribution(int);
 
 void motion_model(particle& newP, int control[2], particle prevP){
+	srand(time(0));
 	int v = control[0];
 	int w = control[1];
 	int vPred = control[0] +sample_normal_distribution((v*v)+(w*w));
@@ -21,8 +24,8 @@ void motion_model(particle& newP, int control[2], particle prevP){
 
 int sample_normal_distribution(int b){
 	int sample = 0;
-	srand(time(0));
 	for (int i = 0; i < 12; i++){
 		sample +=  (rand()%(b+b)-b);
 	}
+	return sample;
 }

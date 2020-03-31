@@ -7,7 +7,15 @@
 namespace plt = matplotlibcpp;
 int plot(pVector particles, robot r) {
     double pi = 3.14159;
+    //holder
+     std::vector<int> hold1= {300,300};
+    std::vector<int> hold2= {300,300};
 
+    plt::plot(hold1,hold2,"r--");
+    std::vector<int> hold3= {0,0};
+    std::vector<int> hold4= {0,0};
+
+    plt::plot(hold3,hold4,"r--");
     //landmark 
     std::vector<int> x2= {90,91};
     std::vector<int> y2= {90,91};
