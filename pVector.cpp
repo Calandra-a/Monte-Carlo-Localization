@@ -1,33 +1,35 @@
 #pragma once
 #include "particle.cpp"
-
+template <class T>
 struct node{
- particle p;
+ T p;
  node* next;
 };
 
+template< class K>
 class pVector { 
 private:
-    node* head;
-    node* tail; 
+    node<K>* head;
+    node<K>* tail; 
     int length;  
 public: 
     pVector();
-    void push_back(particle);
-    particle at(int);
+    void push_back(K);
+    K at(int);
     int size();
 }; 
 // Member Functions - - - - - - - - - - - - - - - - - - - - - -
-pVector::pVector(){ 
+template< class K>
+pVector<K>::pVector(){ 
     head = nullptr;
     tail = nullptr;
     length = 0;
 } 
-
-void pVector::push_back(particle p){ 
+template< class K>
+void pVector<K>::push_back(K p){ 
     //first object case
     if (length == 0){
-        node *n = new node{p,nullptr};
+        node<K> *n = new node<K>{p,nullptr};
         head = n;
         tail = n;
         n = nullptr;
@@ -35,21 +37,22 @@ void pVector::push_back(particle p){
     }
     //2nd+ object case
     else{
-        node *n = new node{p,nullptr};
+        node<K>* n = new node<K>{p,nullptr};
         tail->next = n;
         tail = n;
         length++;
     }
 } 
-  
-particle pVector::at(int index){ 
-    node *n = head;
+
+template< class K>
+K pVector<K>::at(int index){ 
+    node <K>*n = head;
     for (int i =0; i < index; i++){
         n = n->next;
     }
     return n->p;
 }   
-
-int pVector::size(){ 
+template< class K>
+int pVector<K>::size(){ 
     return length; 
 } 

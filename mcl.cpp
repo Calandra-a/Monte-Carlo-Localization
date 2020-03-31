@@ -3,9 +3,9 @@
 #include "measurement_model.cpp"
 #include "pVector.cpp"
 
-pVector mcl (pVector prevParticles, int control[2], robot&  r){
+pVector<particle> mcl (pVector<particle> prevParticles, int control[2], robot&  r){
 	
-	pVector predictedParticleSet; 
+	pVector<particle> predictedParticleSet; 
 	particle p(0,0,0,0); 
 	r.setX(r.getX()+control[0]);
 	r.setY(r.getY()+control[1]);
@@ -25,7 +25,7 @@ pVector mcl (pVector prevParticles, int control[2], robot&  r){
 	for (int i =0; i < predictedParticleSet.size(); i++){
 		total = total + predictedParticleSet.at(i).getW();
 	}
-	pVector resample;
+	pVector<particle> resample;
 	srand(time(0));
 	//Draw
 	for (int i =0; i <predictedParticleSet.size() ; i++){

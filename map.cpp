@@ -3,7 +3,7 @@
 #pragma once
 class map{
     private:
-        pVector m;
+        pVector<feature> m;
     public:
         feature getFeature(int); 
         void setFeature(feature);

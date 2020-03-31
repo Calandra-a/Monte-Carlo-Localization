@@ -5,7 +5,7 @@
 #include "../pVector.cpp"
 #pragma once
 namespace plt = matplotlibcpp;
-int plot(pVector particles, robot r) {
+int plot(pVector <particle>particles, robot r) {
     double pi = 3.14159;
     //holder
      std::vector<int> hold1= {300,300};
