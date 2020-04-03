@@ -10,7 +10,7 @@
 int main(){
 	//Used for realtime runtime analysis
 	//auto t1 = std::chrono::high_resolution_clock::now();
-	pVector<particle> startP = genParticles(500);
+	pVector<particle> startP = genParticles(1000);
 	robot r(50,50,50);
 	map currMap;
 	feature measurement;
@@ -21,7 +21,7 @@ int main(){
 		currMap.setFeature(measurement);
 	}
 	plot(startP,r);
-	for (int i =0; i <20; i++){
+	for (int i =0; i <10; i++){
 		
 		int c[2] = {5,5};
 		startP = mcl(startP,c,measurement,r,currMap);

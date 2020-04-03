@@ -5,7 +5,6 @@
 #include <math.h>
 void measurement_model(particle&,feature,robot, particle, map);
 int prob(int);
-int prob2(int);
 void measurement_model(particle& newP, feature f, robot r, particle prevP, map inMap){
 
 	    int j = inMap.findFromCorrespondence(f.getCorrespondence());
@@ -18,32 +17,22 @@ void measurement_model(particle& newP, feature f, robot r, particle prevP, map i
         ((inMap.getFeature(j).getRangeY() - r.getY())*(inMap.getFeature(j).getRangeY() - r.getY()))
         );
 		int trueBearing;
-		int a = inMap.getFeature(j).getRangeY() - prevP.getY();
-		int b =inMap.getFeature(j).getRangeX() - prevP.getX();
-		int c = inMap.getFeature(j).getRangeY() - r.getY();
-		int d = inMap.getFeature(j).getRangeX() - r.getX();
 		trueBearing = atan2((abs(inMap.getFeature(j).getRangeY() - prevP.getY())), abs((inMap.getFeature(j).getRangeX() - prevP.getX())));
 		int bearing = atan2(abs((inMap.getFeature(j).getRangeY() - r.getY())), abs((inMap.getFeature(j).getRangeX() - r.getX())));
 		int q;
-		int deltaR, deltaB, deltaC;
+		int deltaR, deltaB;
 		deltaR = range - trueRange;
 		deltaB = bearing - trueBearing;
-		deltaC = f.getCorrespondence() - inMap.getFeature(j).getCorrespondence();
 		int error = rand() % 30;
-		//q = (prob(deltaR) + prob(deltaB) + prob(deltaC))/3;
-		//q -= error;
-		q = (prob2((abs(deltaB)+abs(deltaR)+abs(deltaC))));
+
+		q = (prob((abs(deltaB)+abs(deltaR))));
         newP.setW(q);
 }
-int prob2(int delta){
+int prob(int delta){
 	if (abs(delta) >= 60){
 		return 1;
 	}
 	else 
 		return 100 - abs(delta);
 }
-int prob(int delta) {
-	int prob;
-	prob = 100 - (delta / 100); //100% - delta(percentage)
-	return prob;
-}
+

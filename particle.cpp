@@ -18,7 +18,7 @@ public:
 	void setW(int);
 };
 
-//Member Functions - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//Member Functions
 particle::particle(int x, int y, int theata, int weight){
 			this->x = x;
 			this->y = y;
