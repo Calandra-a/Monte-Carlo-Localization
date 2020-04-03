@@ -7,8 +7,11 @@ on Ubuntu 16.04
 
 Running the program:
 from root of program run: 
+
 cmake .
+
 make
+
 ./mcl
 
 - - - - - - - - - - - - - - - - - - - - - - -
