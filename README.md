@@ -17,3 +17,9 @@ make
 - - - - - - - - - - - - - - - - - - - - - - -
 When executed a plot will appear for each iteration of the algorithm (set for 10 iterations)
 after each plot opens close it and the next iteration will open.
+
+
+The matplolib-cpp folder is a clone of this third party repository
+https://github.com/lava/matplotlib-cpp
+
+utilized only for plotting functions for visualization of the project
