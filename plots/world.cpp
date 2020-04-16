@@ -1,4 +1,4 @@
-#include "/home/arc/Documents/MCL/matplotlib-cpp/matplotlibcpp.h"
+#include "../matplotlib-cpp/matplotlibcpp.h"
 #include <vector> //todo remove
 #include <math.h> //todo remove
 #include "../robot.cpp"
