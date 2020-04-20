@@ -3,6 +3,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <time.h>  
+
 #pragma once
 void motion_model(particle&, int[], particle);
 int sample_normal_distribution(int);
