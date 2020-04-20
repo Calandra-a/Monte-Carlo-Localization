@@ -41,9 +41,7 @@ make
 ./mcl
 
 
-#Gazebo
-
-### Commands
+# Gazebo
 
 #### After make command
 
