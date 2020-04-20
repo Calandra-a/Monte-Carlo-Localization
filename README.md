@@ -40,6 +40,22 @@ make
 
 ./mcl
 
+
+#Gazebo
+
+###Commands
+
+####After make command
+
+export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:~/Monte-Carlo-Localization/build
+
+####include plugins folder in bashrc
+
+export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:/usr/lib/x86_64-linux-gnu/gazebo-7/plugins
+
+
+
+
 - - - - - - - - - - - - - - - - - - - - - - -
 When executed a plot will appear for each iteration of the algorithm (set for 10 iterations)
 after each plot opens close it and the next iteration will open.
