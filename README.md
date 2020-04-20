@@ -43,13 +43,13 @@ make
 
 #Gazebo
 
-###Commands
+### Commands
 
-####After make command
+#### After make command
 
 export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:~/Monte-Carlo-Localization/build
 
-####include plugins folder in bashrc
+#### include plugins folder in bashrc
 
 export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:/usr/lib/x86_64-linux-gnu/gazebo-7/plugins
 
