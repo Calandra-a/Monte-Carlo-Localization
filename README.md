@@ -50,11 +50,11 @@ make
 export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:~/Monte-Carlo-Localization/build
 
 ### To run code
-####open terminal and run 
+#### open terminal and run 
 gzserver -u ../Gazebo/robot.world --verbose
-####open another tab in the terminal and run 
+#### open another tab in the terminal and run 
 gzclient
-####this will launch gazebo with the world loaded
+#### this will launch gazebo with the world loaded
 press the play button in the bottom of the simulator 
 
 You will see the Robot start rolling after a couple seconds the robot will begin localizing(on my hardware the similuation slows heavily here due to performace limitations) 
