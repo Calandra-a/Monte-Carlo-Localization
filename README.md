@@ -36,7 +36,8 @@ sudo make install
 sudo apt-get install python-matplotlib python-numpy python2.7-dev
 
 ### Running the program:
-
+#### from the root of  Monte-Carlo-Localization folder
+mkdir build 
 ### from build folder in Monte-Carlo-Localization folder:
 
 cmake ..
