@@ -13,7 +13,7 @@ sudo apt-get install python2.7
 
 ## To install Gazebo (simulation software)
 
-sudo apt-get install gazebo7
+http://gazebosim.org/tutorials?cat=install&tut=install_ubuntu&ver=7.0
 
 ### downloaded cmake from
 
