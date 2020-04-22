@@ -3,26 +3,26 @@
 #include <gazebo/physics/physics.hh>
 #include <gazebo/common/common.hh>
 #include <ignition/math/Vector3.hh>
-#include <iostream> 
 #include "mcl.cpp"
 #include "particle.cpp"
 #include "motion_model.cpp"
-//#include "plots/world.cpp"
 #include "robot.cpp"
 #include "particleFunctions.cpp"
+#include <math.h>
+
 namespace gazebo
 {
   class robotMove : public ModelPlugin
   {
-    public:double x,y,z;
+    public:double x,y, old_x,old_y;
             robot r;
             map currMap;
             feature measurement;
             pVector<particle> startP;
-            int c[2] = {1,0};
+            
 
     public:robotMove():ModelPlugin(){
-            printf("start!\n"); 
+            printf("Start Setup\n"); 
             startP = genParticles(400);
             int range[2] = {90,90};
             measurement.setRange(range);
@@ -32,7 +32,9 @@ namespace gazebo
             }
             //plot(startP,r);
             //for (int i =0; i <10; i++){
-            printf("End constuction!\n");
+            printf("Setup Complete!\n");
+            printf("Start MCL\n");
+            
   
     }
     public: void Load(physics::ModelPtr _parent, sdf::ElementPtr /*_sdf*/)
@@ -51,24 +53,28 @@ namespace gazebo
     // Called by the world update start event
     public: void OnUpdate()
     {
-      printf("start Update!\n");
       // Apply a small linear velocity to the model.
-      this->model->GetJoint("left_wheel_hinge") -> SetVelocity(0,1);
-      this->model->GetJoint("right_wheel_hinge") -> SetVelocity(0,1);
+
       gazebo::math::Pose pose;     
       pose = this->model->GetWorldPose();
       math::Vector3 v(0, 0, 0);
-      v = pose.pos;
+      math::Vector3 v_old(0, 0, 0);
+
+      v_old = pose.pos;
+      old_x = v_old.x; // x coordinate
+      old_y = v_old.y; // y coordinate    
+      int x_p =(int)x+1;
+      int y_p =(int)y+1;  
+      this->model->GetJoint("left_wheel_hinge") -> SetVelocity(0,1);
+      this->model->GetJoint("right_wheel_hinge") -> SetVelocity(0,1);
+      if((abs(x-old_x) >=x_p || (abs(y-old_y)>=y_p))){ 
       x = v.x; // x coordinate
       y = v.y; // y coordinate
-      z = v.z; // z coordinate
-      std::cout <<"X: " <<x<<" Y: "<<y << " Z: "<<z<<"\n";
-      r.update(x,y,z);
-      printf("start MCL!\n");
+      r.update(x,y,0);
+      int c[2] = {(int)abs(x-old_x),(int)abs(y-old_y)};
       startP = mcl(startP,c,measurement,r,currMap);
-      printf("END MCL!\n");
-
     }
+  }
 
     // Pointer to the model
     private: physics::ModelPtr model;

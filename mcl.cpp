@@ -3,6 +3,7 @@
 #include "measurement_model.cpp"
 #include "pVector.cpp"
 #include <iostream>
+
 pVector<particle> mcl (pVector<particle> prevParticles, int control[2], feature f, robot&  r, map currMap){
 	
 	pVector<particle> predictedParticleSet; 
@@ -35,7 +36,6 @@ pVector<particle> mcl (pVector<particle> prevParticles, int control[2], feature 
 			  }
 		  }
 	}//end for
-
 	return resample;
 	
 }
