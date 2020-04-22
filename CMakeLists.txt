@@ -14,3 +14,7 @@ list(APPEND CMAKE_CXX_FLAGS "${GAZEBO_CXX_FLAGS}")
 
 add_library(robotMove SHARED robotMove.cc)
 target_link_libraries(robotMove ${GAZEBO_LIBRARIES})
+
+add_library(laserScan SHARED laserScan.cc)
+target_link_libraries(laserScan ${GAZEBO_LIBRARIES} RayPlugin)
+

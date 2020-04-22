@@ -1,5 +1,4 @@
 #include "particle.cpp" 
-#include "plots/world.cpp"
 #include <math.h>
 #include <stdlib.h>
 #include <time.h>  

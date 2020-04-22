@@ -7,8 +7,8 @@ private:
 	int theata;
 
 public:
-	robot(int, int, int );
-	;
+
+	void update(int,int,int);
 
 	int getX();
 	int getY();
@@ -21,10 +21,10 @@ public:
 };
 
 //Member Functions - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-robot::robot(int x, int y, int theata){
-	this -> x = x;
-	this -> y = y;
-	this -> theata = theata;
+void robot::update(int x, int y, int t){
+	setX(x);
+	setY(y);
+	setT(t);
 }
 
 int robot::getX(){

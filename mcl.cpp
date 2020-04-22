@@ -2,14 +2,11 @@
 #include "motion_model.cpp"
 #include "measurement_model.cpp"
 #include "pVector.cpp"
-
+#include <iostream>
 pVector<particle> mcl (pVector<particle> prevParticles, int control[2], feature f, robot&  r, map currMap){
 	
 	pVector<particle> predictedParticleSet; 
 	particle p(0,0,0,0); 
-	r.setX(r.getX()+control[0]);
-	r.setY(r.getY()+control[1]);
-	r.setT(r.getT()+control[2]);
 	for (int i =0; i < prevParticles.size(); i++){
 		//sets x,y,theata
 		motion_model(p, control, prevParticles.at(i));
@@ -18,7 +15,6 @@ pVector<particle> mcl (pVector<particle> prevParticles, int control[2], feature 
 		//adds particle to predicted set
 		predictedParticleSet.push_back(p);
 	}
-
 
 	//Resample
 	int total=0; 

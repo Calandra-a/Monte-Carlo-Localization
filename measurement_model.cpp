@@ -18,7 +18,8 @@ void measurement_model(particle& newP, feature f, robot r, particle prevP, map i
         );
 		int trueBearing;
 		trueBearing = atan2((abs(inMap.getFeature(j).getRangeY() - prevP.getY())), abs((inMap.getFeature(j).getRangeX() - prevP.getX())));
-		int bearing = atan2(abs((inMap.getFeature(j).getRangeY() - r.getY())), abs((inMap.getFeature(j).getRangeX() - r.getX())));
+		int bearing; 
+		bearing= atan2(abs((inMap.getFeature(j).getRangeY() - r.getY())), abs((inMap.getFeature(j).getRangeX() - r.getX())));
 		int q;
 		int deltaR, deltaB;
 		deltaR = range - trueRange;

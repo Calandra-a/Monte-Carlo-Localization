@@ -5,7 +5,7 @@
 #include "../pVector.cpp"
 #pragma once
 namespace plt = matplotlibcpp;
-int plot(pVector <particle>particles, robot r) {
+int plot(pVector <particle>particles, robot *r) {
     double pi = 3.14159;
     //holder
     std::vector<int> hold1= {300,300};
@@ -28,17 +28,17 @@ int plot(pVector <particle>particles, robot r) {
     std::vector<int> robotY;
     std::vector<double> robotdX;
     std::vector<double> robotdY;
-    robotX.push_back(r.getX());
-    robotY.push_back(r.getY());
-    robotdX.push_back(cos(r.getT()/(180/pi)));
-    robotdY.push_back(sin(r.getT()/(180/pi)));
+    robotX.push_back(r->getX());
+    robotY.push_back(r->getY());
+    robotdX.push_back(cos(r->getT()/(180/pi)));
+    robotdY.push_back(sin(r->getT()/(180/pi)));
 
     plt::quiver(robotX,robotY,robotdX,robotdY);
     
-    robotX.push_back(r.getX()+1);
-    robotX.push_back(r.getX()+2);
-    robotY.push_back(r.getY()+1);
-    robotY.push_back(r.getY()+2);
+    robotX.push_back(r->getX()+1);
+    robotX.push_back(r->getX()+2);
+    robotY.push_back(r->getY()+1);
+    robotY.push_back(r->getY()+2);
     plt::plot(robotX,robotY, "g-");
 
     //Particles 
