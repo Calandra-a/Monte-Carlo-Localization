@@ -1,3 +1,6 @@
 [submodule "matplotlib-cpp"]
 	path = matplotlib-cpp
 	url = https://github.com/Calandra-a/matplotlib-cpp
+[submodule "line_per"]
+	path = line_per
+	url = https://github.com/Calandra-a/line_perception.git
